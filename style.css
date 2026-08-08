@@ -5,50 +5,97 @@
   font-family: "Poppins", sans-serif;
 }
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
 .main {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: url(vecteezy_golden-clock-on-wooden-floor-in-front-of-city-lights_74286095.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
+  padding: 1.5rem 1rem;
+  text-align: center;
 }
 
 .title {
   margin-top: 1rem;
   color: white;
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 5vw, 2.5rem);
+  word-break: break-word;
+  max-width: 90vw;
 }
+
 .col {
   margin-top: 10px;
   display: flex;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
-  align-items: center;
-  width: 50%;
-  height: 100px;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
 }
+
+.col > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 100px;
+  min-width: 80px;
+}
+
 div input {
-    padding: 10px;
+  padding: 10px;
   text-align: center;
-  font-size: 40px;
-  width: 70%;
-  height: 60px;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  width: 100%;
+  max-width: 120px;
+  height: clamp(48px, 10vw, 60px);
   border: none;
   border-radius: 8px;
 }
+
 div label {
   margin-top: 10px;
   color: white;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+  .col {
+    gap: 0.75rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  .col {
+    row-gap: 1rem;
+    column-gap: 0.5rem;
+  }
+
+  .col > div {
+    flex: 1 1 40%;
+  }
 }
